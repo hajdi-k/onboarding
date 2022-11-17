@@ -1,0 +1,10 @@
+{
+	"name": "hajdi-onboarding",
+	"version": "0.0.1",
+	"description": " Onboarding App",
+	"scripts": {
+		"start": "docker build -t hajdi-onboarding-app . && docker run --name hajdi-onboarding-app -p 9999:80 --add-host hajdionboard.com:127.0.0.1 hajdi-onboarding-app",
+		"stop": "docker stop hajdi-onboarding-app && npm run clean",
+		"clean": "docker rm hajdi-onboarding-app && docker rmi hajdi-onboarding-app"
+	}
+}

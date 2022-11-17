@@ -1,0 +1,16 @@
+{
+	"name": "hajdi/onboard",
+	"repositories": [
+		{
+			"type": "git",
+			"url": "https://github.com/databox/databox-php.git"
+		}
+	],
+	"require": {
+		"databox/databox": "^2.0",
+		"asana/asana": "^0.10.0"
+	},
+	"config": {
+		"vendor-dir": "src/vendor"
+	}
+}
