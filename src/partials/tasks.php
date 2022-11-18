@@ -31,9 +31,5 @@
         }
     }
 
-
-    /* $size = 0;
-     */
-
-    echo json_encode($allTasks, JSON_PRETTY_PRINT);
+    // echo json_encode($allTasks, JSON_PRETTY_PRINT);
 ?>
