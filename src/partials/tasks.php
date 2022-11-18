@@ -2,29 +2,38 @@
     $tasksOffset = null;
     $allTasks = array();
 
-    // var_dump($allDataboxProductProjects[0]->gid);
+    $numOfProjectPages = 0;
+    foreach ($allDataboxProductProjects as $productProject) {
+        $numOfTaskPages = 0;
+        while (true) {
+            $tasksPage = $asanaClient->tasks->getTasks(null, array(
+                'offset' => $tasksOffset, 
+                'iterator_type' => null, 
+                'page_size' => 10,
+                'project' => $productProject->gid,
+                'opt_fields' => 'gid,name,assignee.name,completed,completed_at,completed_by.name,created_at,due_at,projects.name'
+            ));
+            $allTasks = array_merge($allTasks, $tasksPage->data); // Sheesh, add some error handling, what if there's no data :(
+    
+            if (isset($tasksPage->next_page)) {
+                $tasksOffset = $tasksPage->next_page->offset;
+            } else {
+                break;
+            }
 
-    $size = 0;
-    while (true) {
-        $tasksPage = $asanaClient->tasks->getTasks(null, array(
-            'offset' => $tasksOffset, 
-            'iterator_type' => null, 
-            'page_size' => 5,
-            'project' => $allDataboxProductProjects[0]->gid,
-            'opt_fields' => 'gid,name,assignee.name,completed,completed_at,completed_by.name,created_at,due_at'
-        ));
-        $allTasks = array_merge($allTasks, $tasksPage->data); // Sheesh, add some error handling, what if there's no data :(
-
-        if (isset($tasksPage->next_page)) {
-            $tasksOffset = $tasksPage->next_page->offset;
-        } else {
-            break;
+            if (++$numOfTaskPages == 2) { // Added it so the url doesn't timeout xD 
+                break;
+            }
         }
 
-        if (++$size == 2) {
+        if (++$numOfProjectPages == 2) { // Added it so the url doesn't timeout xD 
             break;
         }
     }
+
+
+    /* $size = 0;
+     */
 
     echo json_encode($allTasks, JSON_PRETTY_PRINT);
 ?>
