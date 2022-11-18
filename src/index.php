@@ -8,7 +8,7 @@
     $databoxClient = new Databox\Client($secrets["databox"]["asanaDataSourceToken"]);
 
     include ('partials/projects.php');
-    // include ('partials/tasks.php');
+    include ('partials/tasks.php');
 
     
     // $ok = $databoxClient->push('sales', 123000);

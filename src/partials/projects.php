@@ -8,7 +8,7 @@
             'page_size' => 20,
             'workspace' => $secrets["asana"]["workspaceGid"],
             'team' => $secrets["asana"]["teamId"],
-            'opt_fields' => 'gid'
+            'opt_fields' => 'gid,name'
         ));
         $allDataboxProductProjects = array_merge($allDataboxProductProjects, $projectsPage->data); // Sheesh, add some error handling, what if there's no data :(
 

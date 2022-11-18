@@ -2,15 +2,21 @@
     $tasksOffset = null;
     $allTasks = array();
 
-    // $allDataboxProductProjects
+    // var_dump($allDataboxProductProjects[0]->gid);
 
     $size = 0;
     while (true) {
-        $projectsPage = $asanaClient->tasks->getTasks(null, array('offset' => $tasksOffset, 'iterator_type' => null, 'page_size' => 5, 'workspace' => $secrets["asana"]["workspaceGid"], 'team' => $secrets["asana"]["teamId"]));
-        $allTasks = array_merge($allTasks, $projectsPage->data); // Sheesh, add some error handling, what if there's no data :(
+        $tasksPage = $asanaClient->tasks->getTasks(null, array(
+            'offset' => $tasksOffset, 
+            'iterator_type' => null, 
+            'page_size' => 5,
+            'project' => $allDataboxProductProjects[0]->gid,
+            'opt_fields' => 'gid,name,assignee.name,completed,completed_at,completed_by.name,created_at,due_at'
+        ));
+        $allTasks = array_merge($allTasks, $tasksPage->data); // Sheesh, add some error handling, what if there's no data :(
 
-        if (isset($projectsPage->next_page)) {
-            $tasksOffset = $projectsPage->next_page->offset;
+        if (isset($tasksPage->next_page)) {
+            $tasksOffset = $tasksPage->next_page->offset;
         } else {
             break;
         }

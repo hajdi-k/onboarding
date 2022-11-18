@@ -4,3 +4,4 @@ src/vendor
 src/config/local.php
 src/help.php
 test.txt
+compare/
