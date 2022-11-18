@@ -17,6 +17,11 @@ IndexIgnore * # prevent directory listing
     Allow from all
 </Files>
 
+<Files taskscopy.json>
+    Order Allow,Deny
+    Allow from all
+</Files>
+
 # ------------------------------------------
 # Rewrite so that php extentions are not shown
 RewriteEngine on

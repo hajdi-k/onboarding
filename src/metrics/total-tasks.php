@@ -1,3 +1,3 @@
 <?php
-    // $databoxClient->push('tasks', 50);
+    $databoxClient->push('total_tasks', count($allTasks));
 ?>
