@@ -13,6 +13,11 @@
                 'project' => $productProject->gid,
                 'opt_fields' => 'gid,name,assignee.name,completed,completed_at,completed_by.name,created_at,due_at,projects.name'
             ));
+
+            foreach ($tasksPage->data as &$data) {
+                $data->currentproject = $productProject->gid;
+            }
+
             $allTasks = array_merge($allTasks, $tasksPage->data); // Sheesh, add some error handling, what if there's no data :(
     
             if (isset($tasksPage->next_page)) {

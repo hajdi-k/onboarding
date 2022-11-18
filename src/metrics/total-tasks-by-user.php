@@ -5,14 +5,14 @@
         if (!$t->assignee) {
             $key = md5("Unassigned");
             if (!array_key_exists($key, $totalTasksByUser)) {
-                $totalTasksByUser[$key] = array('name' => 'Unassigned', "value" => 0);
+                $totalTasksByUser[$key] = array('name' => 'Unassigned', "value" => 1);
             } else {
                 $totalTasksByUser[$key]["value"]++;
             }
         } else {
             $key = md5($t->assignee->name);
             if (!array_key_exists($key, $totalTasksByUser)) {
-                $totalTasksByUser[$key] = array('name' => $t->assignee->name, "value" => 0);
+                $totalTasksByUser[$key] = array('name' => $t->assignee->name, "value" => 1);
             } else {
                 $totalTasksByUser[$key]["value"]++;
             }
