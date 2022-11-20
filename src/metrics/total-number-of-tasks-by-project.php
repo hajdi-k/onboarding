@@ -14,7 +14,7 @@
 
     $totalTasksByProjectPayload = array();
     foreach($totalTasksByProject as $t) {
-        array_push($totalTasksByProjectPayload, ['total_number_of_tasks_by_project', $t["value"], date("c"), ["attribute" => $t["project-name"]]]);
+        array_push($totalTasksByProjectPayload, ['total_number_of_tasks_by_project', $t["value"], date("c"), ["project" => $t["project-name"]]]);
     }
 
     $databoxClient->insertAll($totalTasksByProjectPayload);

@@ -21,7 +21,7 @@
 
     $totalTasksByUserPayload = array();
     foreach($totalTasksByUser as $t) {
-        array_push($totalTasksByUserPayload, ['total_tasks_by_user', $t["value"], date("c"), ["user" => $t["name"]]]);
+        array_push($totalTasksByUserPayload, ['total_tasks_by_user', $t["value"], $now, ["user" => $t["name"]]]);
     }
 
     $databoxClient->insertAll($totalTasksByUserPayload);
