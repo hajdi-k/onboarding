@@ -2,7 +2,7 @@
     $completedTasksByUser = array();
 
     foreach($completedTasks as $t) {
-        if (!$t->completed_by) {
+        if (!$t->completed_by) { // For completed tasks, don't go by assignee. There is a completed_by prop 
             $key = md5("Unassigned");
             if (!array_key_exists($key, $completedTasksByUser)) {
                 $completedTasksByUser[$key] = array('name' => 'Unassigned', "value" => 1);

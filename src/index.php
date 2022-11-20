@@ -8,6 +8,8 @@
     $asanaClient = Asana\Client::accessToken($secrets["asana"]["personalAccessToken"]);
     $databoxClient = new Databox\Client($secrets["databox"]["asanaDataSourceToken"]);
     $now = substr(date("c"), 0, 10);
+    $nowLong = str_replace('+00:00', '.000Z', gmdate('c', null));
+
 
     // Fetch Tasks
     // include ('partials/projects.php');
@@ -33,9 +35,9 @@
     // include ('metrics/date-range/new-tasks.php'); // Done
     // include ('metrics/date-range/new-tasks-by-user.php'); // Done
 
-    include ('metrics/date-range/completed-tasks.php');
-    include ('metrics/date-range/completed-tasks-by-user.php');
+    // include ('metrics/date-range/completed-tasks.php');
+    // include ('metrics/date-range/completed-tasks-by-user.php');
 
-    /* include ('metrics/date-range/overdue-tasks.php');
-    include ('metrics/date-range/overdue-tasks-by-user.php'); */
+    include ('metrics/date-range/overdue-tasks.php');
+    include ('metrics/date-range/overdue-tasks-by-user.php');
 ?>
