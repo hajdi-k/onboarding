@@ -17,5 +17,7 @@
         array_push($totalTasksByProjectPayload, ['total_number_of_tasks_by_project', $t["value"], date("c"), ["project" => $t["project-name"]]]);
     }
 
-    $databoxClient->insertAll($totalTasksByProjectPayload);
+    if (count($totalTasksByProject) != 0) {
+        $databoxClient->insertAll($totalTasksByProjectPayload);
+    }
 ?>

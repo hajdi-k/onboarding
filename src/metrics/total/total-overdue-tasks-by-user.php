@@ -24,5 +24,7 @@
         array_push($totalOverdueTasksByUserPayload, ['total_overdue_tasks_by_user', $t["value"], $now, ["user" => $t["name"]]]);
     }
 
-    $databoxClient->insertAll($totalOverdueTasksByUserPayload);
+    if (count($totalOverdueTasksByUser) != 0) {
+        $databoxClient->insertAll($totalOverdueTasksByUserPayload);
+    }
 ?>

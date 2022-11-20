@@ -24,5 +24,7 @@
         array_push($totalCompletedTasksByUserPayload, ['total_completed_tasks_by_user', $t["value"], $now, ["user" => $t["name"]]]);
     }
 
-    $databoxClient->insertAll($totalCompletedTasksByUserPayload);
+    if (count($totalCompletedTasksByUser) != 0) {
+        $databoxClient->insertAll($totalCompletedTasksByUserPayload);
+    }
 ?>
