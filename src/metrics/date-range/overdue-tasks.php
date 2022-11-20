@@ -2,7 +2,7 @@
     $overdueTasks = array(); // Used by other files, since you're already looping all tasks here, just create the subset.
 
     foreach ($allTasks as $task ) {
-        if ($task->due_at && ($task->due_at < $nowLong) && !$task->completed) { // str_starts_with($task->created_at, $now)) {
+        if ($task->due_at && str_starts_with($task->due_at, $now) && !$task->completed) { // went overdue today
             array_push($overdueTasks, $task);
         }
     }
