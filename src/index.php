@@ -12,31 +12,31 @@
 
 
     // Fetch Tasks
-    // include ('partials/projects.php');
-    // include ('partials/tasks.php');
+    include ('partials/projects.php');
+    include ('partials/tasks.php');
 
     // Use local copy of tasks during dev
-    $allTasks = json_decode(file_get_contents("test/taskscopy.json"));
+    // $allTasks = json_decode(file_get_contents("test/taskscopy.json"));
 
     // Totals
-    // include ('metrics/total/total-tasks.php');
-    // include ('metrics/total/total-tasks-by-user.php');
+    include ('metrics/total/total-tasks.php');
+    include ('metrics/total/total-tasks-by-user.php');
 
-    // include ('metrics/total/total-completed-tasks.php');
-    // include ('metrics/total/total-completed-tasks-by-user.php');
+    include ('metrics/total/total-completed-tasks.php');
+    include ('metrics/total/total-completed-tasks-by-user.php');
 
-    /*  include ('metrics/total/total-overdue-tasks.php');
-    include ('metrics/total/total-overdue-tasks-by-user.php'); */
+    include ('metrics/total/total-overdue-tasks.php');
+    include ('metrics/total/total-overdue-tasks-by-user.php');
 
-    // include ('metrics/total/total-number-of-tasks-by-project.php');
+    include ('metrics/total/total-number-of-tasks-by-project.php');
 
-    // // OverTime
-    // include ('metrics/date-range/new-tasks.php');
-    // include ('metrics/date-range/new-tasks-by-user.php');
+    // OverTime
+    include ('metrics/date-range/new-tasks.php');
+    include ('metrics/date-range/new-tasks-by-user.php');
 
-    // include ('metrics/date-range/completed-tasks.php');
-    // include ('metrics/date-range/completed-tasks-by-user.php');
+    include ('metrics/date-range/completed-tasks.php');
+    include ('metrics/date-range/completed-tasks-by-user.php');
 
-    // include ('metrics/date-range/overdue-tasks.php');
-    // include ('metrics/date-range/overdue-tasks-by-user.php');
+    include ('metrics/date-range/overdue-tasks.php');
+    include ('metrics/date-range/overdue-tasks-by-user.php');
 ?>
